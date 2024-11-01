@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Total Vote b local GOVERNMENT</title>
+</head>
+<body>
+    <p>TOTAL VOTES BLOCAL GOVERNMENT</p>
+    <form method="post" style="width: 7vw;">
+        {% csrf_token %}
+        <label for="local_government">Select Local government:</label>
+        <select name="local_government" id="local_government">
+            {% for lg in local_government  %}
+            <option value="{{lg.id}}">{{lg.name}}</option>
+            {% endfor %}
+        </select>
+        <button type="submit">Get Total Vote</button>
+        
+    </form>
+    {% if total is not None %}
+    <h2>Total Votes {{total}}</h2>
+    {% endif %}
+
+</body>
+</html>

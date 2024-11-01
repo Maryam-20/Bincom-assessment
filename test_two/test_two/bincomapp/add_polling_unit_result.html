@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Polling Unit Result</title>
+</head>
+<body>
+    <h1>Add Result for New Polling Unit</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{formset.management_form}}
+        {% for form in formset  %}
+        {{ form.as_p }}
+        {% endfor %}
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>
